@@ -4,6 +4,7 @@ const passport = require('passport');
 
 const User = require('../users/models/User');
 require('../../lib/passport');
+
 const { createUserCart } = require('../cart/controllers/cartController');
 const {
   register,

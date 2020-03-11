@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Cart = require('../cart/models/Cart');
+const Cart = require('./models/Cart');
 
 router.get('/', (req, res, next) => {
   Cart.findOne({ owner: req.user._id })

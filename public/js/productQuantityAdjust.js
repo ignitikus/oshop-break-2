@@ -1,27 +1,22 @@
-if (document.getElementById('plus')) {
-  document.getElementById('plus').addEventListener('click', event => {
+const plus = document.getElementById('plus')
+const minus = document.getElementById('minus')
+let priceValue = parseFloat(document.getElementById('priceValue').value);
+let quantity = parseFloat(document.getElementById('quantity').value);
+let priceHidden = parseFloat(document.getElementById('priceHidden').value);
+
+if (plus) {
+  plus.addEventListener('click', event => {
     event.preventDefault();
-
-    let priceValue = parseFloat(document.getElementById('priceValue').value);
-    let quantity = parseFloat(document.getElementById('quantity').value);
-    let priceHidden = parseFloat(document.getElementById('priceHidden').value);
-
     priceValue += priceHidden;
     quantity += 1;
-    document.getElementById('quantity').value = quantity;
     document.getElementById('priceValue').value = priceValue.toFixed(2);
     document.getElementById('total').innerHTML = quantity;
   });
 }
 
-if (document.getElementById('minus')) {
-  document.getElementById('minus').addEventListener('click', event => {
+if (minus) {
+  minus.addEventListener('click', event => {
     event.preventDefault();
-
-    let priceValue = parseFloat(document.getElementById('priceValue').value);
-    let quantity = parseFloat(document.getElementById('quantity').value);
-    let priceHidden = parseFloat(document.getElementById('priceHidden').value);
-
     if (quantity === 1) {
       quantity = 1;
       priceValue = priceHidden;
@@ -29,7 +24,6 @@ if (document.getElementById('minus')) {
     } else {
       priceValue -= priceHidden;
       quantity -= 1;
-      document.getElementById('quantity').value = quantity;
       document.getElementById('priceValue').value = priceValue.toFixed(2);
       document.getElementById('total').innerHTML = quantity;
     }
